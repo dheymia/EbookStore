@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "401303849667",
+    "firebase_url": "https://e-book-store-32ae4.firebaseio.com",
+    "project_id": "e-book-store-32ae4",
+    "storage_bucket": "e-book-store-32ae4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:401303849667:android:65fce01f22e052d1",
+        "android_client_info": {
+          "package_name": "senac.ebookstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "401303849667-ktndn6cd5afb20p7k2mcc46cmlqdgv6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "senac.ebookstore",
+            "certificate_hash": "eb85148bc60764e002142fa5401530a339cf06b7"
+          }
+        },
+        {
+          "client_id": "401303849667-ibk4dbkvvckemghh9q6f1r2p6rt5crjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABpARbaxR0kAm_oU4Gyx5Wf-kAgqLrKyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "401303849667-ibk4dbkvvckemghh9q6f1r2p6rt5crjq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
