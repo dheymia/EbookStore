@@ -28,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                case R.id.navigation_romances:
+                    mTextMessage.setText(R.string.title_romance);
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                case R.id.navigation_tecnicos:
+                    mTextMessage.setText(R.string.title_tecnicos);
+                    return true;
+                case R.id.navigation_negocios:
+                    mTextMessage.setText(R.string.title_negocios);
                     return true;
                 case R.id.navigation_ebook:
                     Intent intent = new Intent(getBaseContext(), EbookActivity.class);

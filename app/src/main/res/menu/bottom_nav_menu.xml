@@ -8,18 +8,22 @@
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_romances"
+        android:icon="@drawable/romance"
+        android:title="@string/title_romance" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_negocios"
+        android:icon="@drawable/negocios"
+        android:title="@string/title_negocios" />
+
+    <item
+        android:id="@+id/navigation_tecnicos"
+        android:icon="@drawable/tecnicos"
+        android:title="@string/title_tecnicos" />
     <item
         android:id="@+id/navigation_ebook"
         android:icon="@drawable/click3"
-        android:title="Novo" />
         android:title="@string/title_novo" />
 
 </menu>

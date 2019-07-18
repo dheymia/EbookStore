@@ -20,7 +20,8 @@
     <string name="title_activity_ebook">Cadastrar E-Book</string>
     <string name="title_activity_main">E-Book Store</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_novo">Adicionar</string>
+    <string name="title_romance">Romances</string>
+    <string name="title_negocios">Negócios</string>
+    <string name="title_tecnicos">Técnicos</string>
 </resources>
