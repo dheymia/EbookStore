@@ -24,4 +24,8 @@
     <string name="title_romance">Romances</string>
     <string name="title_negocios">Negócios</string>
     <string name="title_tecnicos">Técnicos</string>
+    <string name="titulo">Título</string>
+    <string name="autor">Autor</string>
+    <string name="tipo">Gênero</string>
+    <string name="sinopse">Sinopse</string>
 </resources>

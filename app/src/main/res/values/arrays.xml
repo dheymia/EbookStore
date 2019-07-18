@@ -9,4 +9,10 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="tipo">
+        <item>Romance</item>
+        <item>Negócios</item>
+        <item>Técnico</item>
+    </string-array>
 </resources>
