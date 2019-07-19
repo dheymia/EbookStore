@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="20dp"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".EbookActivity"
@@ -12,9 +12,25 @@
 
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/isbn"
+        android:textColor="@color/colorPrimary" />
+
+    <EditText
+        android:id="@+id/txtIsbn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/dicaIsbn"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="@string/titulo"
         android:textColor="@color/colorPrimary" />
 
@@ -23,28 +39,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/titulo"
+        android:hint="@string/dicaTitulo"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/autor" />
+        android:layout_marginTop="10dp"
+        android:text="@string/autor"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/txtAutor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/autor"
+        android:hint="@string/dicaAutor"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tipo" />
+        android:layout_marginTop="10dp"
+        android:text="@string/tipo"
+        android:textColor="@color/colorPrimary" />
 
     <Spinner
         android:id="@+id/spiTipo"
@@ -56,7 +76,9 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/sinopse" />
+        android:layout_marginTop="15dp"
+        android:text="@string/sinopse"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/txtSinopse"
@@ -64,46 +86,39 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="@string/sinopse"
+        android:hint="@string/dicaSinopse"
         android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <EditText
-        android:id="@+id/txtIsbn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="10dp"
+        android:text="@string/urlpdf"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
-        android:id="@+id/TxtUrlEbook"
+        android:id="@+id/txtUrlEbook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/dicaUrlpdf"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="10dp"
+        android:text="@string/urlimagem"
+        android:textColor="@color/colorPrimary" />
 
     <EditText
         android:id="@+id/txtUrlImagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/dicaUrlimagem"
         android:inputType="textPersonName" />
 
 </LinearLayout>

@@ -42,7 +42,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:text="@string/titulo"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="@string/sinopse"
                 android:textColor="@color/colorPrimary"
                 android:textSize="12sp"

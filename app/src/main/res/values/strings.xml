@@ -17,9 +17,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_ebook">Cadastrar E-Book</string>
+    <string name="title_activity_ebook">Cadastrar novo E-Book</string>
     <string name="title_activity_main">E-Book Store</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Todos</string>
     <string name="title_novo">Adicionar</string>
     <string name="title_romance">Romances</string>
     <string name="title_negocios">Negócios</string>
@@ -28,4 +28,13 @@
     <string name="autor">Autor</string>
     <string name="tipo">Gênero</string>
     <string name="sinopse">Sinopse</string>
+    <string name="isbn">ISBN</string>
+    <string name="urlpdf">Url do arquivo .pdf</string>
+    <string name="urlimagem">Url da imagem</string>
+    <string name="dicaTitulo">Título do E-book</string>
+    <string name="dicaAutor">Autor do E-book</string>
+    <string name="dicaSinopse">Breve descrição do E-book</string>
+    <string name="dicaUrlpdf">http://www.ebook.com.br/novoebook.pdf</string>
+    <string name="dicaUrlimagem">http://www.ebook.com.br/imagemebook.png</string>
+    <string name="dicaIsbn">9999999999999</string>
 </resources>
