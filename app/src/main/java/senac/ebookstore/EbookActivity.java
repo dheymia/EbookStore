@@ -28,6 +28,7 @@ public class EbookActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         txtTitulo = findViewById(R.id.txtTitulo);
         txtAutor = findViewById(R.id.txtAutor);
         spTipo = findViewById(R.id.spiTipo);
@@ -49,10 +50,41 @@ public class EbookActivity extends AppCompatActivity {
                 String urlebook = txtUrlebook.getText().toString();
                 String urlimagem = txtUrlImagem.getText().toString();
 
+                if (isbn.isEmpty()){
+                    txtIsbn.setError ("Campo obrigatório");
+                    txtIsbn.requestFocus();
+                    return;
+                }
+                if (titulo.isEmpty()){
+                    txtTitulo.setError ("Campo obrigatório");
+                    txtTitulo.requestFocus();
+                    return;
+                }
+                if (autor.isEmpty()){
+                    txtAutor.setError ("Campo obrigatório");
+                    txtAutor.requestFocus();
+                    return;
+                }
+                if (sinopse.isEmpty()){
+                    txtSinopse.setError ("Campo obrigatório");
+                    txtSinopse.requestFocus();
+                    return;
+                }
+                if (urlebook.isEmpty()){
+                    txtUrlebook.setError ("Campo obrigatório");
+                    txtUrlebook.requestFocus();
+                    return;
+                }
+                if (urlimagem.isEmpty()){
+                    txtUrlImagem.setError ("Campo obrigatório");
+                    txtUrlImagem.requestFocus();
+                    return;
+                }
+
                 Ebook ebook = new Ebook(isbn, urlimagem, titulo, autor, sinopse, tipo, urlebook);
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ebooks/" + ebook.getTipo() + "/" + ebook.getIsbn());
+                DatabaseReference myRef = database.getReference("ebooks/" + "/" + ebook.getIsbn());
 
                 myRef.setValue(ebook);
                 finish();

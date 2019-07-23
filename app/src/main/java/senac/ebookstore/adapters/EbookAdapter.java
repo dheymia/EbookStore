@@ -80,4 +80,5 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
             itemView.setOnClickListener(mOnItemClickListener);
         }
     }
+
 }
