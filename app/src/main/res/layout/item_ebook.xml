@@ -4,7 +4,6 @@
     android:id="@+id/bcItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
     android:background="#fce8f2">
 
     <ImageView
@@ -12,7 +11,11 @@
         android:layout_width="96dp"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
-        app:srcCompat="@drawable/ic_29302" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorAccent"
+        android:foregroundGravity="top|center"
+        app:srcCompat="@drawable/common_full_open_on_phone" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +27,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -97,6 +101,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
             <TextView

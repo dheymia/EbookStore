@@ -42,9 +42,51 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextMessage;
     private RecyclerView recyclerView;
     EbookAdapter adapter;
+    DatabaseReference myRef;
     private List<Ebook> ebookList = new ArrayList<>();
     ProgressDialog progressDialog;
+    static Ebook ebookSelecionado;
+    static boolean alterar = false;
 
+
+    private View.OnClickListener onItemClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
+            int position = viewHolder.getAdapterPosition();
+
+            ebookSelecionado = ebookList.get(position);
+            Toast.makeText(MainActivity.this, "You Clicked: " + ebookSelecionado.getIsbn(), Toast.LENGTH_SHORT).show();
+
+            alterar = true;
+
+            Intent intent = new Intent(getBaseContext(), EbookActivity.class);
+            startActivity(intent);
+        }
+    };
+
+    private ValueEventListener ListenerGeral = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            ebookList.clear();
+
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                Ebook ebook = ds.getValue(Ebook.class);
+                ebookList.add(ebook);
+            }
+
+            adapter = new EbookAdapter(ebookList, MainActivity.this);
+            adapter.setOnItemClickListener(onItemClickListener);
+            recyclerView.setAdapter(adapter);
+
+            progressDialog.dismiss();
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+            progressDialog.dismiss();
+        }
+    };
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -54,18 +96,22 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
-
+                    myRef.limitToFirst(100).addValueEventListener(ListenerGeral);
                     return true;
                 case R.id.navigation_romances:
                     mTextMessage.setText(R.string.title_romance);
+                    myRef.limitToFirst(100).orderByChild("tipo").equalTo("Romance").addValueEventListener(ListenerGeral);
                     return true;
                 case R.id.navigation_tecnicos:
                     mTextMessage.setText(R.string.title_tecnicos);
+                    myRef.limitToFirst(100).orderByChild("tipo").equalTo("Técnico").addValueEventListener(ListenerGeral);
                     return true;
                 case R.id.navigation_negocios:
                     mTextMessage.setText(R.string.title_negocios);
+                    myRef.limitToFirst(100).orderByChild("tipo").equalTo("Negócios").addValueEventListener(ListenerGeral);
                     return true;
                 case R.id.navigation_ebook:
+                    alterar = false;
                     Intent intent = new Intent(getBaseContext(), EbookActivity.class);
                     startActivity(intent);
                     return true;
@@ -89,43 +135,18 @@ public class MainActivity extends AppCompatActivity {
         txtNome.setText("Olá " + name);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("ebooks");
+        myRef = database.getReference("ebooks");
 
         recyclerView = findViewById(R.id.listEbooks);
-
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         progressDialog = new ProgressDialog(this);
-
         progressDialog.setMessage("Carregando...");
-
         progressDialog.show();
+        myRef.limitToFirst(100).addValueEventListener(ListenerGeral);
 
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ebookList.clear();
-
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    Ebook ebook = ds.getValue(Ebook.class);
-                    ebookList.add(ebook);
-                }
-
-                adapter = new EbookAdapter(ebookList, MainActivity.this);
-
-                recyclerView.setAdapter(adapter);
-
-                progressDialog.dismiss();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                progressDialog.dismiss();
-            }
-        });
     }
 
     @Override

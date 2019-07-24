@@ -1,7 +1,6 @@
 package senac.ebookstore.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,12 +45,23 @@ public class EbookAdapter extends RecyclerView.Adapter<EbookAdapter.EbookViewHol
         EbookViewHolder viewHolder = (EbookViewHolder) holder;
         final Ebook ebook = ebookList.get(position);
 
-        viewHolder.ebook.setImageURI(Uri.parse(ebook.getImageUrl()));
+        //viewHolder.ebook.setImageURI(Uri.parse(ebook.getImageUrl()));
         viewHolder.titulo.setText(ebook.getTitulo());
         viewHolder.autor.setText(ebook.getAutor());
         viewHolder.tipo.setText(ebook.getTipo());
         viewHolder.sinopse.setText(ebook.getSinopse());
 
+        if (ebook.getImageUrl() == null || ebook.getImageUrl().isEmpty()){
+            holder.ebook.setImageResource(R.drawable.ic_29302);
+        } else {
+            Picasso.get().load(ebook.getImageUrl()).into(holder.ebook);
+        }
+
+
+    }
+
+    public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
     }
 
     @Override

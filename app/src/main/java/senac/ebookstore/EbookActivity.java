@@ -11,8 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import senac.ebookstore.models.Ebook;
 
@@ -36,6 +40,16 @@ public class EbookActivity extends AppCompatActivity {
         txtIsbn = findViewById(R.id.txtIsbn);
         txtUrlebook = findViewById(R.id.txtUrlEbook);
         txtUrlImagem = findViewById(R.id.txtUrlImagem);
+
+        if (MainActivity.alterar){
+            txtTitulo.setText(String.valueOf(MainActivity.ebookSelecionado.getTitulo()));
+            txtAutor.setText(String.valueOf(MainActivity.ebookSelecionado.getAutor()));
+            //spTipo.setAdapter(adapter);
+            txtSinopse.setText(String.valueOf(MainActivity.ebookSelecionado.getSinopse()));
+            txtIsbn.setText(String.valueOf(MainActivity.ebookSelecionado.getIsbn()));
+            txtUrlImagem.setText(String.valueOf(MainActivity.ebookSelecionado.getImageUrl()));
+            txtUrlebook.setText(String.valueOf(MainActivity.ebookSelecionado.getUrl()));
+        }
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -81,13 +95,26 @@ public class EbookActivity extends AppCompatActivity {
                     return;
                 }
 
-                Ebook ebook = new Ebook(isbn, urlimagem, titulo, autor, sinopse, tipo, urlebook);
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("ebooks/" + "/" + ebook.getIsbn());
+                if (MainActivity.alterar){
+                    Ebook ebook = new Ebook(isbn, urlimagem, titulo, autor, sinopse, tipo, urlebook);
 
-                myRef.setValue(ebook);
-                finish();
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("ebooks/" + "/" + ebook.getIsbn());
+
+                    myRef.setValue(ebook);
+                    finish();
+
+                } else {
+                    Ebook ebook = new Ebook(isbn, urlimagem, titulo, autor, sinopse, tipo, urlebook);
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("ebooks/" + "/" + ebook.getIsbn());
+
+                    myRef.setValue(ebook);
+                    finish();
+                }
+
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
